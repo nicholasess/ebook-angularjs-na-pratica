@@ -2,7 +2,9 @@
 
 As rotas são responsáveis por informar ao angular, qual template html e controller serão responsáveis por uma determinada rota que o usuário acessar.
 
-Para escrevermos as rotas, vamos escrever dentro da função `.config()` do módulo principal da aplicação, aquela cujo o nome está ligado ao ng-app do arquivo HTML.
+Para utlizar um módulo de rotas especifico, precisamos colocar o nome do módulo dentro das dependencias do módulo principal da aplicação.
+
+Ele será inicializado e utilizado dentro da função .config(), do módulo principal da aplcação.
 
 Na versão 1.3 do angular, temos dois módulos focados em rotas, um é o ngRoute e o outro é o ui-route.
 
