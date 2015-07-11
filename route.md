@@ -2,20 +2,19 @@
 
 As rotas são responsáveis por informar ao angular, qual template html e controller serão responsáveis por uma determinada rota que o usuário acessar.
 
-Para escrevermos as rotas, vamos escrever dentro da função .config() do módulo principal da aplicação, aquela cujo o nome está ligado ao ng-app do arquivo HTML.
+Para escrevermos as rotas, vamos escrever dentro da função `.config()` do módulo principal da aplicação, aquela cujo o nome está ligado ao ng-app do arquivo HTML.
 
 Na versão 1.3 do angular, temos dois módulos focados em rotas, um é o ngRoute e o outro é o ui-route.
 
 ### ngRoute
 
-O módulo responsável pelas rotas,se chama ngRoute, ele é uma dependência, ou seja, um módulo externo que precisa ser inserido no arquivo principal.
+O módulo responsável pelas rotas,se chama `ngRoute`, ele é uma dependência, ou seja, um módulo externo que precisa ser inserido no arquivo principal.
 
-A variável que precisa ser chama na função .config, se chama $routeProvider, essa variável tem a função when, que seta as rotas e suas configurações e o otherwise, que indica qual rota que a aplicação deve redirecionar, caso não tentem acessar uma rota inexistente.
+A variável que precisa ser chama na função `.config()`, se chama `$routeProvider`, essa variável tem a função `.when()`, que seta as rotas e suas configurações e o `otherwise()`, que indica qual rota que a aplicação deve redirecionar, caso tentem acessar uma rota inexistente.
 
-A função when recebe dois parâmetros, o primeiro parâmetro é a rota e o segundo é um objeto que contém dois campos, o primeiro é o campo indica o template HTML e o segundo indica a controller.
+A função `.when()` recebe dois parâmetros, o primeiro parâmetro é a rota e o segundo é um objeto que contém dois campos, o primeiro é o campo indica o template HTML e o segundo indica a controller.
 
 Veja o exemplo abaixo.
-
 ```
 .config(function($routeProvider){
 	$routeProvider
@@ -26,7 +25,7 @@ Veja o exemplo abaixo.
 })
 ```
 
-O primeiro parâmetro da função when é o '/', indicando a rota principal da aplicação e o segundo parâmetro com o campo template e controller. O campo template recebe tags htmls, mas como fazemos pra indicar o caminho até um arquivo HTML?
+O primeiro parâmetro da função `.when()` é o '/', indicando a rota principal da aplicação e o segundo parâmetro com o campo template e controller. O campo template recebe tags htmls, mas como fazemos pra indicar o caminho até um arquivo HTML?
 
 Precisamos trocar esse campo pelo templateUrl, ficando assim:
 
@@ -40,9 +39,9 @@ Precisamos trocar esse campo pelo templateUrl, ficando assim:
 })
 ```
 
-Você verá o template ou templateUrl em tudo que indica arquivo HTML ou tags htmls.
+Você verá o template ou templateUrl nos módulos de rotas e no uso de diretiva.
 
-A função otherwise recebe um object que contém o campo redirectTo, o valor desse campo será a rota que a aplicação ira redirecionar, caso algo de errado.
+A função `otherwise` recebe um `objeto` que contém o campo redirectTo, o valor desse campo será a rota que a aplicação ira redirecionar, caso tentem acessar uma rota inexsistente.
 
 Veja o exemplo:
 
@@ -68,5 +67,35 @@ Veja o exemplo
 
 `<div ng-view> </div>`
 
+#### Resolve
+
+O resolve é uma funcionaldade dos módulos de rotas, que tem como objetivo, carregar informações através de promises, antes que a rota seja trocada. 
+Quando o usuário acessa uma rota que lista diversos itens e não queremos que essas informações sejam carregadas no momento da exibibição da view, usamos o resolve.
+
+Veja o exemplo
+
+```
+.config(function($routeProvider){
+	$routeProvider	
+	.when('/lista', {
+		templateUrl: 'views/main.html',
+		controller:'MainCtrl',
+		resolve: {
+		  Lista: function($http){
+		    return $http.get('api/listadeitens');
+		  }
+		}
+	});	
+});
+
+.controller('MainCtrl', function(Lista){
+  $scope.itens = Lista();
+});
+```
+
+Como podemos perceber na função config que define as rotas, na rota `/lista` depois da controller, temos o resolve, a forma dele ser usado, é somente dessa maneira, sempre abaixo da controller. O resolve basicamente é um objeto que tem dentro, várias funções com os promises resolvidos, então quando estivermos na view, as informações já estarão carregadas.
+
+
 ### ui-router
 
+O ui-router é um módulo de rotas mais robusto, ele utiliza um sistema de view que pode conter mais de um canal de visualização numa mesma rota. 
