@@ -87,6 +87,7 @@ Veja o exemplo
 	.otherwise({redirectTo:'/'});
 })
 ```
+Na rota `/itens` listamos todos os itens e na rota `/item/:id` iremos listar sm
 #### Resolve
 
 O resolve é uma funcionalidade dos módulos de rotas, que tem como objetivo, carregar informações através de promises, antes que a rota seja trocada. 
