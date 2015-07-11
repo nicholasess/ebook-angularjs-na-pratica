@@ -1,9 +1,4 @@
 * [Introdução](README.md)
-* [Olá mundo](helloworld.md)
-* [Controllers](controller.md)
-* [Serviços](service.md)
-* [Http](http.md)
 * [Rotas](route.md)
-* [Diretivas do AngularJs](directive-ng.md)
-* [Diretivas customizadas](directive-custom.md)
-* [Conclusão](conclusion.md)
+
+
