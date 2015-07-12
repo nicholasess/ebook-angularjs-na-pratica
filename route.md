@@ -87,7 +87,32 @@ Veja o exemplo
 	.otherwise({redirectTo:'/'});
 })
 ```
-Na rota `/itens` listamos todos os itens e na rota `/item/:id` iremos listar sm
+Na rota `/itens` listamos todos os itens e na rota `/item/:id` iremos listar somente um item. O `:id`representa um id da lista e é possivel pegar através do $routeParams.id.
+
+Veja o exemplo
+
+```
+.config(function($routeProvider){
+	$routeProvider	
+	.when('/itens', {
+		templateUrl: 'views/itens.html',
+		controller:'ItensCtrl'
+	})
+	
+	.when('/item/:id', {
+		templateUrl: 'views/item.html',
+		controller:'ItemCtrl'
+	})
+
+	.otherwise({redirectTo:'/'});
+})
+
+.controller('ItemCtrl', function($routeParams){
+  console.log($routeParams.id);
+})
+```
+Se acessarmos a rota `/item/1`, irá aparecer 1 no console do browser.
+
 #### Resolve
 
 O resolve é uma funcionalidade dos módulos de rotas, que tem como objetivo, carregar informações através de promises, antes que a rota seja trocada. 
@@ -148,3 +173,6 @@ O jeito correto é não deixar a responsabilidade na resolve em retornar informa
 ```
 
 Assim caso algo mude, iremos nos preocupamos apenas em mudar na factory.
+
+### ui-router
+
