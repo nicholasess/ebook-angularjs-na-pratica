@@ -4,6 +4,12 @@ As rotas são responsáveis por informar ao angular, qual template html e contro
 
 Para utlizar um módulo de rotas especifico, precisamos colocar o nome do módulo dentro das dependencias do módulo principal da aplicação.
 
+Veja abaixo
+
+```
+angular.module('App', ['ngRoute']);
+```
+
 Ele será inicializado e utilizado dentro da função .config(), do módulo principal da aplcação.
 
 Na versão 1.3 do angular, temos dois módulos focados em rotas, um é o ngRoute e o outro é o ui-route.
@@ -61,7 +67,7 @@ Veja o exemplo:
 
 Nota: Não é de responsabilidade do módulo de rotas, redirecionar para rotas, caso haja erros https (404, 500, 400 e etc). No capítulo `Http` iremos tratar isso de forma correta.
 
-Para funcionar, precisamos setar no arquivo html principal da aplicação a diretiva chamada `ng-view`, onde essa diretiva estiver, será carregado os arquivos html que estão setados no templateUrl de cada rota.
+Para funcionar, precisamos setar no arquivo html principal da aplicação a diretiva chamada `ng-view`, onde essa diretiva estiver, será carregado via ajax os arquivos html que estão setados no templateUrl de cada rota.
 
 Somente o arquivo principal precisa conter as tags `html` e `body`, os arquivos que compõem cada rota, basta somente as tags `html referente ao funcionamento da view.
 
@@ -115,7 +121,7 @@ Se acessarmos a rota `/item/1`, irá aparecer 1 no console do browser.
 
 #### Resolve
 
-O resolve é uma funcionalidade dos módulos de rotas, que tem como objetivo, carregar informações através de promises, antes que a rota seja trocada. 
+O resolve é uma funcionalidade dos módulos de rotas, que tem como objetivo, carregar informações através de promises, antes que a view seja carregada. 
 Quando o usuário acessa uma rota que lista diversos itens e não queremos que essas informações sejam carregadas no momento da exibibição da view, usamos o resolve.
 
 Veja o exemplo
@@ -172,7 +178,16 @@ O jeito correto é não deixar a responsabilidade na resolve em retornar informa
 });
 ```
 
-Assim caso algo mude, iremos nos preocupamos apenas em mudar na factory.
+Assim caso algo mude, iremos nos preocupar apenas em mudar na factory.
 
 ### ui-router
 
+O `ui-route`é módulo robusto para a criação de aplicaçõs que precisam de views mais dinâmicas, que são barradas no ngRoute. Com o ùi-ruter`podemos criar mais de um canal para visualização das views, criar views nested, que são views dentro de outras views. Isso será explicado de forma clara daqui em diante.
+
+Para começarmos, precisamos setar no módulo principal da aplicação, nas dependencias o módulo do ui-router.
+
+Veja abaixo
+
+```
+angular.module('App', ['ui-router']);
+```
