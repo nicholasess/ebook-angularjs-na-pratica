@@ -53,7 +53,7 @@ Veja o exemplo:
 	.when('/', {
 		templateUrl: 'views/main.html',
 		controller:'MainCtrl'
-	});	
+	})	
 
 	.otherwise({redirectTo:'/'});
 })
@@ -82,7 +82,7 @@ Veja o exemplo
 	.when('/item/:id', {
 		templateUrl: 'views/item.html',
 		controller:'ItemCtrl'
-	});
+	})
 
 	.otherwise({redirectTo:'/'});
 })
