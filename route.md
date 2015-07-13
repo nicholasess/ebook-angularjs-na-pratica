@@ -180,5 +180,5 @@ O jeito correto é não deixar a responsabilidade na resolve em retornar informa
 
 Assim caso algo mude, iremos nos preocupar apenas em mudar na factory. 
 
-Para saber sobre isso na prática, baixe o repositório com um exemplo nesse [link](https://github.com/nicholasess/examples-angularjs-na-pratica/tree/master/rotas/ngRoute)
+Para saber mais, baixe o repositório com um exemplo nesse [link](https://github.com/nicholasess/examples-angularjs-na-pratica/tree/master/rotas/ngRoute)
 
