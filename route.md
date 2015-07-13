@@ -122,7 +122,7 @@ Se acessarmos a rota `/item/1`, irá aparecer 1 no console do browser.
 #### Resolve
 
 O resolve é uma funcionalidade dos módulos de rotas, que tem como objetivo, carregar informações através de promises, antes que a view seja carregada. 
-Quando o usuário acessa uma rota que lista diversos itens e não queremos que essas informações sejam carregadas no momento da exibibição da view, usamos o resolve.
+Quando o usuário acessa uma rota que lista diversos itens e não queremos que essas informações sejam carregadas no momento da exibição da view, usamos o resolve.
 
 Veja o exemplo
 
