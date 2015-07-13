@@ -33,7 +33,7 @@ Veja o exemplo abaixo.
 })
 ```
 
-O primeiro parâmetro da função `.when()` é o '/', indicando a rota principal da aplicação e o segundo parâmetro com o campo template e controller. O campo template recebe tags htmls, mas como fazemos pra indicar o caminho até um arquivo HTML?
+O primeiro parâmetro da função `.when()` é o `'/'`, indicando a rota principal da aplicação e o segundo parâmetro com o campo template e controller. O campo template recebe tags htmls, mas como fazemos pra indicar o caminho até um arquivo HTML?
 
 Precisamos trocar esse campo pelo templateUrl, ficando assim:
 
@@ -49,7 +49,7 @@ Precisamos trocar esse campo pelo templateUrl, ficando assim:
 
 Você verá o template ou templateUrl nos módulos de rotas e no uso de diretiva.
 
-A função `otherwise` recebe um `objeto` que contém o campo redirectTo, o valor desse campo será a rota que a aplicação ira redirecionar, caso tentem acessar uma rota inexsistente.
+A função `otherwise` recebe um `objeto` que contém o campo `redirectTo`, o valor desse campo será a rota que a aplicação ira redirecionar, caso tentem acessar uma rota inexsistente.
 
 Veja o exemplo:
 
@@ -178,16 +178,7 @@ O jeito correto é não deixar a responsabilidade na resolve em retornar informa
 });
 ```
 
-Assim caso algo mude, iremos nos preocupar apenas em mudar na factory.
+Assim caso algo mude, iremos nos preocupar apenas em mudar na factory. 
 
-### ui-router
+Para saber sobre isso na prática, baixe o repositório com um exemplo nesse [link](https://github.com/nicholasess/examples-angularjs-na-pratica/tree/master/rotas/ngRoute)
 
-O `ui-route`é módulo robusto para a criação de aplicaçõs que precisam de views mais dinâmicas, que são barradas no ngRoute. Com o ùi-ruter`podemos criar mais de um canal para visualização das views, criar views nested, que são views dentro de outras views. Isso será explicado de forma clara daqui em diante.
-
-Para começarmos, precisamos setar no módulo principal da aplicação, nas dependencias o módulo do ui-router.
-
-Veja abaixo
-
-```
-angular.module('App', ['ui-router']);
-```
