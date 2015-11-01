@@ -2,7 +2,7 @@
 
 As rotas são responsáveis por informar ao angular, qual template html e controller serão responsáveis por uma determinada rota que o usuário acessar.
 
-Para utlizar um módulo de rotas especifico, precisamos colocar o nome do módulo dentro das dependencias do módulo principal da aplicação.
+Para utilizar um módulo de rotas especifico, precisamos colocar o nome do módulo dentro das dependencias do módulo principal da aplicação.
 
 Veja abaixo
 
@@ -10,9 +10,9 @@ Veja abaixo
 angular.module('App', ['ngRoute']);
 ```
 
-Ele será inicializado e utilizado dentro da função .config(), do módulo principal da aplcação.
+O módulo será inicializado e utilizado dentro da função .config(), do módulo principal da aplcação.
 
-Na versão 1.3 do angular, temos dois módulos focados em rotas, um é o ngRoute e o outro é o ui-route.
+Temos dois módulos focados em rotas, um é o ngRoute e o outro é o ui-route.
 
 ### ngRoute
 
@@ -68,6 +68,22 @@ Veja o exemplo:
 Nota: Não é de responsabilidade do módulo de rotas, redirecionar para rotas, caso haja erros https (404, 500, 400 e etc). No capítulo `Http` iremos tratar isso de forma correta.
 
 Para funcionar, precisamos setar no arquivo html principal da aplicação a diretiva chamada `ng-view`, onde essa diretiva estiver, será carregado via ajax os arquivos html que estão setados no templateUrl de cada rota.
+
+Geralmente utilizamos o arquivo `index.html` como arquivo príncipal para a aplicação `angular`, como modelo `SPA` (Single Page Aplication).
+Para utilizarmos o `ngRoute`, precisamos inicializa-lo dentro do `body` do arquivo `index.html` sendo uma tag `<ng-view></ng-view>` ou um atributo numa tag `<div ng-view></div>`. Se você bootstrap por exemplo, poderia adicionar o atributo `ng-view` dentro de uma `div` que deixará  centralizado as views, veja abaixo:
+
+```
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<div class="container" ng-view></div>
+</body>
+</html>
+``` 
 
 Somente o arquivo principal precisa conter as tags `html` e `body`, os arquivos que compõem cada rota, basta somente as tags `html referente ao funcionamento da view.
 
