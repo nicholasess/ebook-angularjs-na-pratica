@@ -89,7 +89,7 @@ Somente o arquivo principal precisa conter as tags `html` e `body`, os arquivos 
 
 #### $routeParams
 
-O $routeParams é uma funcionaldade muito importante para a utilização de rotas. A aplicação não é composta somente por rotas que fazem listagem de dados, ela tem também rotas que indicam a visualização de apenas um item, e como fazemos isso?
+O $routeParams é uma funcionaldade muito importante para a utilização de rotas. A aplicação não é composta somente por rotas que fazem listagem de dados, ela tem também rotas que indicam a visualização de apenas um item e como fazemos isso?
 
 Veja o exemplo
 
@@ -109,7 +109,7 @@ Veja o exemplo
 	.otherwise({redirectTo:'/'});
 })
 ```
-Na rota `/itens` listamos todos os itens e na rota `/item/:id` iremos listar somente um item. O `:id`representa um id da lista e é possivel pegar através do $routeParams.id.
+Na rota `/itens` listamos todos os itens e na rota `/item/:id` iremos listar somente um item. O `:id`representa um id referente ao item da lista e é possivel pegar através do $routeParams.id.
 
 Veja o exemplo
 
@@ -137,7 +137,7 @@ Se acessarmos a rota `/item/1`, irá aparecer 1 no console do browser.
 
 #### Resolve
 
-O resolve é uma funcionalidade dos módulos de rotas, que tem como objetivo, carregar informações através de promises, antes que a view seja carregada. 
+O resolve é uma funcionalidade dos módulos de rotas, que tem como objetivo, carregar informações antes que a view seja carregada. 
 Quando o usuário acessa uma rota que lista diversos itens e não queremos que essas informações sejam carregadas no momento da exibição da view, usamos o resolve.
 
 Veja o exemplo
@@ -161,7 +161,7 @@ Veja o exemplo
 });
 ```
 
-Como podemos perceber na função config que define as rotas, na rota `/lista` depois da controller, temos o resolve, a forma dele ser usado, é somente dessa maneira, sempre abaixo da controller. O resolve basicamente é um objeto que tem dentro, várias funções com os promises resolvidos, então quando estivermos na view, as informações já estarão carregadas.
+Como podemos perceber na função config que define as rotas, na rota `/lista` temos o resolve, basicamente é um objeto que tem dentro, várias funções com as informações pré carregadas.
 
 O jeito correto é não deixar a responsabilidade na resolve em retornar informações da API, ou seja, essa informação tem que vim de um serviço.
 
