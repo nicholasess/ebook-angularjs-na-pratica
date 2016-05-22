@@ -8,7 +8,7 @@ Para criarmos uma controller, precisamos chamar a função `.controller()` e adi
 angular.module('App')
 .controller('nome_da_controller', function($scope){})
 ```
-O parametro `$scope` dentro da função, é um ponteiro para as variáveis que iremos adicionar dentro do escopo referente a controller.
+O parametro `$scope` dentro da função, é um ponteiro que liga as variáveis que iremos adicionar, dentro do escopo referente a controller.
 
 Ex:
 
@@ -23,7 +23,9 @@ angular.module('App')
   $scope.name = "Nicholas";
 })
 ```
-O resultado esperado é `Olá Nicholas`
+O resultado esperado é `Olá Nicholas`.
+
+
 
 
 
