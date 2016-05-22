@@ -23,7 +23,9 @@ angular.module('App')
   $scope.name = "Nicholas";
 })
 ```
-O resultado esperado é `Olá Nicholas`.
+O resultado esperado é `Olá Nicholas`, 
+
+Para visualizar o exemplo em funcionamento, basta clicar [nesse link](http://jsbin.com/jededitiqi/edit?html,js).
 
 
 
