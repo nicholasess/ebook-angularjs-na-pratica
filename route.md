@@ -10,7 +10,7 @@ Veja abaixo
 angular.module('App', ['ngRoute']);
 ```
 
-O módulo será inicializado e utilizado dentro da função .config(), do módulo principal da aplcação.
+O módulo será inicializado e utilizado dentro da função .config(), do módulo principal da aplicação.
 
 Temos dois módulos focados em rotas, um é o ngRoute e o outro é o ui-route.
 
@@ -23,6 +23,7 @@ A variável que precisa ser chama na função `.config()`, se chama `$routeProvi
 A função `.when()` recebe dois parâmetros, o primeiro parâmetro é a rota e o segundo é um objeto que contém dois campos, o primeiro é o campo indica o template HTML e o segundo indica a controller.
 
 Veja o exemplo abaixo.
+
 ```
 .config(function($routeProvider){
 	$routeProvider
