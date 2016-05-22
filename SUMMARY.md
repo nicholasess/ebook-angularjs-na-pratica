@@ -1,6 +1,8 @@
 
 * [Introdução]()
 * [Rotas](route.md)
-* [Controllers](controller.md)
+* [Controladores](controller.md)
+* [Diretivas Customizadas](directive-custom.md)
+* 
 * 
 
