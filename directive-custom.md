@@ -38,9 +38,14 @@ angular.module('App')
  }
 })
 ```
-
 Dentro da função do `directive()`, retornamos um objeto com as variáveis (restrict e link), repare na variável link, ela tem uma função com dois parametros (scope e element). O **scope** representa o acesso as informações da view através da expressão regular `{{}}` e o **element**, no caso de diretivas que são atributos `A`, representa a tag que a diretiva se encontra, como o exemplo abaixo.
 ```
 <button ouvir-click>Clique Aqui</button>
 ```
+
 Se fizermos um `console.log(element)`, irá retornar todas as propriedades da tag `button`.
+
+Usamos o `.bind` para escutar os eventos que o `button` fará, neste caso, estamos escutando o evento `click`, que ao clicar, o angular fará um `console.log` com o valor `clicou`.
+
+Veja o exemplo [neste link](http://jsbin.com/nelosi/edit?html,js,console,output).
+
