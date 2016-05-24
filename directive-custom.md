@@ -15,12 +15,13 @@ As duas principais são `restrict` e `link`, a `restrict` é tipo da diretiva.
 * 'C' para classes.
 * 'M' para comentários.
 
+Caso não informamos nada, o angular irá usar a diretiva como atributo `A`.
 
 Irei explicar as duas mais utilizadas (atributo e elemento). 
 
 ### Atributo
 
-Você conhece o atributo class e id que incluimos nas tags para estilizarmos o html? Pois bem, é nessa linha de raciocinio, mas podemos fazer muito mais do que estilizar o html, como ouvir clicks e/ou eventos do teclado.
+Você conhece o atributo **class** e **id** que incluimos nas tags para estilizarmos o html? Pois bem, é nessa linha de raciocinio, mas podemos fazer muito mais do que estilizar o html, como ouvir clicks e/ou eventos do teclado.
 
 Iremos criar um atributo chamado `ouvir-click` e ele irá escutar os clicks de um botão.
 
@@ -37,3 +38,9 @@ angular.module('App')
  }
 })
 ```
+
+Dentro da função do `directive()`, retornamos um objeto com as variáveis (restrict e link), repare na variável link, ela tem uma função com dois parametros (scope e element). O **scope** representa o acesso as informações da view através da expressão regular `{{}}` e o **element**, no caso de diretivas que são atributos `A`, representa a tag que a diretiva se encontra, como o exemplo abaixo.
+```
+<button ouvir-click>Clique Aqui</button>
+```
+Se fizermos um `console.log(element)`, irá retornar todas as propriedades da tag `button`.
