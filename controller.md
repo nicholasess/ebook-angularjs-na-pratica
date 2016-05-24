@@ -51,6 +51,8 @@ angular.module('App')
 Quando iniciar a página, clique no botão chamado **clicar** e veja o console do **browser**.
 O resultado está [neste link](http://jsbin.com/yofeqi/edit?html,js,console,output).
 
+PS: o ng-click é uma diretiva do angular que executa funções e lógica que estive dentro do escopo `="olaMundo()"` ou `="name = 'Nicholas'"` dela.
+
 
 
 
