@@ -1,4 +1,4 @@
-## Controllers
+## Controladores
 
 No angular, controller é um meio de comunicação entre a view e toda a regra de negócio que temos numa tela.
 
