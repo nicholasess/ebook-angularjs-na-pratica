@@ -11,4 +11,8 @@
   * Variavel
   * Função
 * [Acessando o back-end com $http](http.md)
+  * Get
+  * Post
+  * Put
+  * Delete
 
