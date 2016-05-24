@@ -34,12 +34,23 @@ Conseguimos simplificar bem, e onde podemos utilizar o $http? O recomendado é s
 
 Vamos criar o CRUD via $http para uma ApiRest, usaremos o `get, post, put e delete`, a url será `api.exemplo.com`.
 
+## GET
+
 Veja abaixo para fazer a listagem de dados, será o R do CRUD.
 ```
 $http.get('api.exemplo.com/produtos').then(function(data){
   console.log(data) //retorna todos os produtos;
 });
 ```
+
+Veja abaixo para fazer a listagem de apenas um item, será o R do CRUD.
+```
+$http.get('api.exemplo.com/produto/1').then(function(data){
+  console.log(data) //retorna apenas um item;
+});
+```
+## POST
+
 Veja abaixo para fazer cadastro de um produto, será o C do CRUD.
 ```
 var dadosenviados = {
@@ -51,12 +62,7 @@ $http.post('api.exemplo.com/produtos', dadosenviados).then(function(data){
   console.log(data) //após inserir o produto, a api irá retornar um OK
 });
 ```
-Veja abaixo para fazer a listagem de apenas um item, será o R do CRUD.
-```
-$http.get('api.exemplo.com/produto/1').then(function(data){
-  console.log(data) //retorna apenas um item;
-});
-```
+## PUT
 Veja abaixo para fazer a atualização de um array, será o R do CRUD. Nesse caso, precisamos passar somente o id do produto que queremos alterar algo e o back end faz essa alteração
 
 ```
@@ -64,6 +70,7 @@ $http.put('api.exemplo.com/produto/1', ).then(function(data){
   console.log(data) //retorna apenas um item;
 });
 ```
+## DELETE
 Veja abaixo para fazer a exclusão de um produto, será o D do CRUD.
 ```
 $http.delete('api.exemplo.com/produto/1', ).then(function(data){
