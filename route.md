@@ -1,4 +1,4 @@
-## Rotas
+# Rotas
 
 As rotas são responsáveis por informar ao angular, qual template html e controller serão responsáveis por uma determinada rota que o usuário acessar.
 
@@ -12,9 +12,7 @@ angular.module('App', ['ngRoute']);
 
 O módulo será inicializado e utilizado dentro da função .config(), do módulo principal da aplicação.
 
-Temos dois módulos focados em rotas, um é o ngRoute e o outro é o ui-route.
-
-### ngRoute
+## ngRoute
 
 O módulo responsável pelas rotas, se chama `ngRoute`, ele é uma dependência, ou seja, um módulo externo que precisa ser inserido no arquivo principal.
 
@@ -88,7 +86,7 @@ Para utilizarmos o `ngRoute`, precisamos inicializa-lo dentro do `body` do arqui
 
 Somente o arquivo principal precisa conter as tags `html` e `body`, os arquivos que compõem cada rota, basta somente as tags `html referente ao funcionamento da view.
 
-#### $routeParams
+### $routeParams
 
 O $routeParams é uma funcionaldade muito importante para a utilização de rotas. A aplicação não é composta somente por rotas que fazem listagem de dados, ela tem também rotas que indicam a visualização de apenas um item e como fazemos isso?
 
@@ -136,7 +134,7 @@ Veja o exemplo
 ```
 Se acessarmos a rota `/item/1`, irá aparecer 1 no console do browser.
 
-#### Resolve
+### Resolve
 
 O resolve é uma funcionalidade dos módulos de rotas, que tem como objetivo, carregar informações antes que a view seja carregada. 
 Quando o usuário acessa uma rota que lista diversos itens e não queremos que essas informações sejam carregadas no momento da exibição da view, usamos o resolve.
@@ -198,4 +196,12 @@ O jeito correto é não deixar a responsabilidade na resolve em retornar informa
 Assim caso algo mude, iremos nos preocupar apenas em mudar na factory. 
 
 Para saber mais, baixe o repositório com um exemplo nesse [link](https://github.com/nicholasess/examples-angularjs-na-pratica/tree/master/rotas/ngRoute)
+
+### $locationChangeStart e $locationChangeSuccess
+
+Essas duas variaveis são eventos e usadas no `$rootScope.$on()` dentro do `.run()`, que é iniciado antes da aplicação, podemos dizer que aqui, é aonde a mágica acontece.
+
+O `$locationChangeStart` é um evento que 'ouve' o inicio da aplicação, nesse cara que podemos criar validações para acesso de determinadas rotas, nossa regra de negócio.
+
+O `$locationChangeSuccess` já é ao contrário, ele 'ouve' quando a aplicação já está estabilizada, quando a view está renderizada e etc.
 
