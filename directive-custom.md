@@ -17,6 +17,8 @@ As duas principais são `restrict` e `link`, a `restrict` é tipo da diretiva.
 
 Caso não informamos nada, o angular irá usar a diretiva como atributo `A`.
 
+A variável `link`, é uma função bem importante
+
 Irei explicar as duas mais utilizadas (atributo e elemento). 
 
 ### Atributo
