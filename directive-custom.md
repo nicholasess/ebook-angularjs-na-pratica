@@ -1,4 +1,4 @@
-## Diretivas customizadas
+# Diretivas customizadas
 
 Diretiva customizada veio para facilitar a criação de componentes, que muitas vezes são reutilizados em diversas páginas da aplicação.
 
@@ -8,14 +8,35 @@ Uma coisa importante sobre o nome da diretiva, é entender como o angular traduz
 
 Dentro da função que passamos no `.directive()`, precisamos retornar variáveis com valores que informam ao angular, o que a tal diretiva faz.
 
-As duas principais são `restrict` e `link`, a `restrict` é tipo da diretiva.
+## Variáveis da Diretiva
+
+As variáveis duas principais são `restrict` e `link`, a `restrict` é tipo da diretiva.
+
+### Restrict
+
+A variável `restrict` tem como objetivo, informar ao angular, qual é o tipo de diretiva que iremos criar, veja os tipos abaixo.
 
 * 'A' para atributo.
 * 'E' para elementos.
 * 'C' para classes.
 * 'M' para comentários.
 
-Caso não informamos nada, o angular irá usar a diretiva como atributo `A`.
+Caso não informamos nada, o angular usará a diretiva como atributo `A`.
+
+A variável `link` é uma função importante, quando estamos lidando com uma diretiva que tem interação do usuário.
+
+Na função, temos três parametros de retorno (scope, element, attr), são os mais 
+
+
+
+
+
+
+
+
+
+
+
 
 Irei explicar as duas mais utilizadas (atributo e elemento). 
 
