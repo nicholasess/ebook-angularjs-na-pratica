@@ -10,63 +10,57 @@ Dentro da função que passamos no `.directive()`, precisamos retornar variávei
 
 ## Variáveis da Diretiva
 
-As variáveis duas principais são `restrict` e `link`, a `restrict` é tipo da diretiva.
+Como existem carros para determinados tipos de pessoas, existem diretivas para determinadas necessidades. Veja abaixo as opções utilizadas para compor uma diretiva.
 
+```
+.directive('nomedadiretiva', function(){
+ return {
+   restrict:null,
+   link: null,
+   transclude: null,
+   scope: null
+   template: null,
+   templateUrl: null
+ }
+})
+```
 ### Restrict
 
-A variável `restrict` tem como objetivo, informar ao angular, qual é o tipo de diretiva que iremos criar, veja os tipos abaixo.
+A variável `restrict` tem como objetivo, informar ao angular qual é o tipo de diretiva que iremos criar, veja os tipos abaixo.
 
 * 'A' para atributo.
 * 'E' para elementos.
 * 'C' para classes.
 * 'M' para comentários.
 
+
+#### Tipo A - Diretiva Atributo
+
+```
+.directive('nomedadiretiva', function(){
+ return {
+   restrict: 'A'
+ }
+})
+```
+Essa diretiva é usada em tags html, ela é usada geralmente para escutar eventos de mouse **(click,doubleclick, mouseenter, mouseleave, mousemove)** e teclado **(keyup, keypress, keydown)**.
+
+O nome de exemplo da nossa diretiva, será `diretivaA`, veja como usamos numa tag html.
+
+```
+<button diretiva-a>Clique<button>
+```
+
+
+Podemos escutar esses eventos através da variável `link`, que iremos abordar no próximo subcapitulo '**Variáveis da Diretiva - Link**'. 
+
+
+
+
+
 Caso não informamos nada, o angular usará a diretiva como atributo `A`.
 
 A variável `link` é uma função importante, quando estamos lidando com uma diretiva que tem interação do usuário.
 
 Na função, temos três parametros de retorno (scope, element, attr), são os mais 
-
-
-
-
-
-
-
-
-
-
-
-
-Irei explicar as duas mais utilizadas (atributo e elemento). 
-
-### Atributo
-
-Você conhece o atributo **class** e **id** que incluimos nas tags para estilizarmos o html? Pois bem, é nessa linha de raciocinio, mas podemos fazer muito mais do que estilizar o html, como ouvir clicks e/ou eventos do teclado.
-
-Iremos criar um atributo chamado `ouvir-click` e ele irá escutar os clicks de um botão.
-
-```
-angular.module('App')
-.directive('ouvirClick', function(){
- return {
-   restrict: 'A',
-   link: function(scope, element){
-     element.bind('click', function(){
-       console.log('clicou');
-     })
-   }
- }
-})
-```
-Dentro da função do `directive()`, retornamos um objeto com as variáveis (restrict e link), repare na variável link, ela tem uma função com dois parametros (scope e element). O **scope** representa o acesso as informações da view através da expressão regular `{{}}` e o **element**, no caso de diretivas que são atributos `A`, representa a tag que a diretiva se encontra, como o exemplo abaixo.
-```
-<button ouvir-click>Clique Aqui</button>
-```
-
-Se fizermos um `console.log(element)`, irá retornar todas as propriedades da tag `button`.
-
-Usamos o `.bind` para escutar os eventos que o `button` fará, neste caso, estamos escutando o evento `click`, que ao clicar, o angular fará um `console.log` com o valor `clicou`.
-
-Veja o exemplo [neste link](http://jsbin.com/nelosi/edit?html,js,console,output).
 
