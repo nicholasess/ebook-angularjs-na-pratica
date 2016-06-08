@@ -2,7 +2,7 @@
 
 * [Introdução](README.md)
 * [Rotas](route/README.md)
-  * [ngRoute](ngroute/README.md)
+  * [ngRoute](route/ngroute/README.md)
     * [$routeParams](route/ngroute/routeparams.md)
     * [Parametros Customizados](route/ngroute/paramcustom.md)
     * [Resolve](route/ngroute/resolve.md)
