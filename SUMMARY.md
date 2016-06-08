@@ -1,12 +1,12 @@
 # Sumário
 
 * [Introdução](README.md)
-* [Rotas](route.md)
-  * ngRoute
-  * $routeParams
-  * Parametros Customizados
-  * Resolve
-  * $locationChangeStart e $locationChangeSuccess
+* [Rotas](route/README.md)
+  * [ngRoute](ngroute/README.md)
+    * [$routeParams](ngroute/routeparams.md)
+    * [Parametros Customizados](ngroute/paramcustom.md)
+    * [Resolve](ngroute/resolve.md)
+    * [$locationChangeStart e $locationChangeSuccess](location)
 * [Controladores](controller.md)
   * Variavel
   * Função
