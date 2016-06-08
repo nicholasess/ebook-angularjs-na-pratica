@@ -3,10 +3,10 @@
 * [Introdução](README.md)
 * [Rotas](route/README.md)
   * [ngRoute](ngroute/README.md)
-    * [$routeParams](ngroute/routeparams.md)
-    * [Parametros Customizados](ngroute/paramcustom.md)
-    * [Resolve](ngroute/resolve.md)
-    * [$locationChangeStart e $locationChangeSuccess](location)
+    * [$routeParams](route/ngroute/routeparams.md)
+    * [Parametros Customizados](route/ngroute/paramcustom.md)
+    * [Resolve](route/ngroute/resolve.md)
+    * [$locationChangeStart e $locationChangeSuccess](route/ngroute/locationchangestartsuccess.md)
 * [Controladores](controller.md)
   * Variavel
   * Função
