@@ -70,10 +70,7 @@ O link é uma função que tem três parametros importantes, caso queiramos mani
 })
 ```
 
-* scope
-    Se ao olhar o scope, lembrar do $scope da `controller`, fica tranquilo que o `scope` da diretiva tem a mesma responsabilidade.
+* **scope**: Se ao olhar o scope, lembrar do $scope da `controller`, fica tranquilo que o `scope` da diretiva tem a mesma responsabilidade.
     O `scope` da diretiva consegue acessar o `$scope` da controller, mas a controller não consegue acessar o `scope` da diretiva. O que tem de bom nisso? Conseguimos isolar variáveis da diretiva e trabalhar num ambiente que não tenha conflitos.
-* element
-    O element é usado para acessar o html em forma de objeto, se estivermos usando a diretiva como atributo `restrict: 'A'`, quando damos `console.log`, retornamos o exatamente os dados da tag que adicionamos a diretiva. Na diretiva `restrict: 'E'`, iremos retorna todo o html que setamos no campo `template` ou `templateUrl`.
-* attribute
-   O attribute é responsável por acessar os atributos da tag que estamos manipulando com o `restrict: 'A'`, podemos acessar o id através de `attribute.id`, class `attribute.class` e etc.
+* **element**: O element é usado para acessar o html em forma de objeto, se estivermos usando a diretiva como atributo `restrict: 'A'`, quando damos `console.log`, retornamos o exatamente os dados da tag que adicionamos a diretiva. Na diretiva `restrict: 'E'`, iremos retorna todo o html que setamos no campo `template` ou `templateUrl`.
+* **attribute**: O attribute é responsável por acessar os atributos da tag que estamos manipulando com o `restrict: 'A'`, podemos acessar o id através de `attribute.id`, class `attribute.class` e etc.
