@@ -1,51 +1,79 @@
-## Diretivas customizadas
+# Diretivas customizadas
 
 Diretiva customizada veio para facilitar a criação de componentes, que muitas vezes são reutilizados em diversas páginas da aplicação.
 
-Esses componentes são criados através da função `.directive()`, podemos gerar atributos, elementos, comentários e classes. Dentro da função, passamos dois parametros. O primeiro é o nome e o segundo é uma função. 
+As diretivas são criadoa através da função `.directive()`, podendo gerar atributos, elementos, comentários e classes. Dentro da função, passamos dois parametros. O primeiro é o nome e o segundo é uma função que retorna a regra de negócio da diretiva.
 
 Uma coisa importante sobre o nome da diretiva, é entender como o angular traduz o nome composto. Se colocarmos um nome todo minusculo ('nomedadiretiva'), o angular vai entender como 'nomedadiretiva', caso o nome seja ('nomeDaDiretiva'), o angular vai entender como 'nome-da-diretiva'.
 
 Dentro da função que passamos no `.directive()`, precisamos retornar variáveis com valores que informam ao angular, o que a tal diretiva faz.
 
-As duas principais são `restrict` e `link`, a `restrict` é tipo da diretiva.
+## Variáveis da Diretiva
 
-* 'A' para atributo.
-* 'E' para elementos.
-* 'C' para classes.
-* 'M' para comentários.
-
-Caso não informamos nada, o angular irá usar a diretiva como atributo `A`.
-
-Irei explicar as duas mais utilizadas (atributo e elemento). 
-
-### Atributo
-
-Você conhece o atributo **class** e **id** que incluimos nas tags para estilizarmos o html? Pois bem, é nessa linha de raciocinio, mas podemos fazer muito mais do que estilizar o html, como ouvir clicks e/ou eventos do teclado.
-
-Iremos criar um atributo chamado `ouvir-click` e ele irá escutar os clicks de um botão.
+Como existem carros para determinados tipos de pessoas, existem diretivas para determinadas necessidades. Veja abaixo as opções utilizadas para compor uma diretiva.
 
 ```
-angular.module('App')
-.directive('ouvirClick', function(){
+.directive('nomedadiretiva', function(){
  return {
-   restrict: 'A',
-   link: function(scope, element){
-     element.bind('click', function(){
-       console.log('clicou');
-     })
-   }
+   restrict:null,
+   link: null,
+   template: null,
+   templateUrl: null,
+   transclude: null,
+   scope: null
  }
 })
 ```
-Dentro da função do `directive()`, retornamos um objeto com as variáveis (restrict e link), repare na variável link, ela tem uma função com dois parametros (scope e element). O **scope** representa o acesso as informações da view através da expressão regular `{{}}` e o **element**, no caso de diretivas que são atributos `A`, representa a tag que a diretiva se encontra, como o exemplo abaixo.
+### Restrict
+
+A variável `restrict` tem como objetivo, informar ao angular qual é o tipo de diretiva que iremos criar, veja os tipos abaixo.
+
+* 'A' para atributo.
+* 'E' para elementos.
+
+#### Tipo A - Diretiva Atributo
+
 ```
-<button ouvir-click>Clique Aqui</button>
+.directive('nomedadiretiva', function(){
+ return {
+   restrict: 'A'
+ }
+})
+```
+Essa diretiva é usada em tags html, ela é usada geralmente para escutar eventos de mouse **(click,doubleclick, mouseenter, mouseleave, mousemove)** e teclado **(keyup, keypress, keydown)**.
+
+O nome de exemplo da nossa diretiva, será `diretivaA`, veja como usamos numa tag html.
+
+```
+<button diretiva-a>Clique</button>
 ```
 
-Se fizermos um `console.log(element)`, irá retornar todas as propriedades da tag `button`.
+#### Tipo E - Diretiva Componente
+```
+.directive('nomedadiretiva', function(){
+ return {
+   restrict: 'E'
+ }
+})
+```
+Essa diretiva é usada como tag com abertura e fechamento `<nomedadiretiva></nomedadiretiva>`, nessa diretiva usamos o `template` ou `templateUrl`, que será explicado mais a frente.
 
-Usamos o `.bind` para escutar os eventos que o `button` fará, neste caso, estamos escutando o evento `click`, que ao clicar, o angular fará um `console.log` com o valor `clicou`.
+### Link
 
-Veja o exemplo [neste link](http://jsbin.com/nelosi/edit?html,js,console,output).
+O link é uma função que tem três parametros importantes, caso queiramos manipular a view.
 
+```
+.directive('nomedadiretiva', function(){
+ return {
+   link: function(scope, element, attribute){}
+ }
+})
+```
+
+* scope
+    Se ao olhar o scope, lembrar do $scope da `controller`, fica tranquilo que o `scope` da diretiva tem a mesma responsabilidade.
+    O `scope` da diretiva consegue acessar o `$scope` da controller, mas a controller não consegue acessar o `scope` da diretiva. O que tem de bom nisso? Conseguimos isolar variáveis da diretiva e trabalhar num ambiente que não tenha conflitos.
+* element
+    O element é usado para acessar o html em forma de objeto, se estivermos usando a diretiva como atributo `restrict: 'A'`, quando damos `console.log`, retornamos o exatamente os dados da tag que adicionamos a diretiva. Na diretiva `restrict: 'E'`, iremos retorna todo o html que setamos no campo `template` ou `templateUrl`.
+* attribute
+   O attribute é responsável por acessar os atributos da tag que estamos manipulando com o `restrict: 'A'`, podemos acessar o id através de `attribute.id`, class `attribute.class` e etc.
